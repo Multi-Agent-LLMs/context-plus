@@ -22,20 +22,22 @@ def get_text_chunks(page_titles, chunk_length=512, verbose=False):
     :return: list of wiki text chunks
     """
     wiki_chunks = []
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        future_to_page = {executor.submit(get_page_content, page_title): page_title for page_title in page_titles}
-        for future in concurrent.futures.as_completed(future_to_page):
-            page_title = future_to_page[future]
-            try:
-                wiki_content = future.result()
-                wiki_content = preprocess_and_chunk_wiki_content(wiki_content, chunk_length=chunk_length)
-                if verbose:
-                    print(f"getting content of page {page_title}")
-                wiki_chunks.extend(wiki_content)
-            except (wikipedia.exceptions.PageError, wikipedia.exceptions.DisambiguationError):
-                if verbose:
-                    print(f"page {page_title} not found")
-                continue  # skip the page if it is not available
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=UserWarning)
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            future_to_page = {executor.submit(get_page_content, page_title): page_title for page_title in page_titles}
+            for future in concurrent.futures.as_completed(future_to_page):
+                page_title = future_to_page[future]
+                try:
+                    wiki_content = future.result()
+                    wiki_content = preprocess_and_chunk_wiki_content(wiki_content, chunk_length=chunk_length)
+                    if verbose:
+                        print(f"getting content of page {page_title}")
+                    wiki_chunks.extend(wiki_content)
+                except (wikipedia.exceptions.PageError, wikipedia.exceptions.DisambiguationError):
+                    if verbose:
+                        print(f"page {page_title} not found")
+                    continue  # skip the page if it is not available
     return wiki_chunks
 
 
@@ -45,10 +47,7 @@ def get_page_content(page_title):
     :param page_title: page_title of the wikipedia page from which the content should be extracted
     :return: content of the wikipedia page
     """
-    with warnings.catch_warnings():
-        warnings.filterwarnings("ignore", category=UserWarning)
-        page_content = wikipedia.page(page_title, auto_suggest=False).content
-    return page_content
+    return wikipedia.page(page_title, auto_suggest=False).content
 
 
 def preprocess_and_chunk_wiki_content(wiki_content, chunk_length=512):
