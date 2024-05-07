@@ -31,9 +31,9 @@ def get_text_chunks(page_titles, chunk_length=512, verbose=False):
                 if verbose:
                     print(f"getting content of page {page_title}")
                 wiki_chunks.extend(wiki_content)
-            except wikipedia.exceptions.PageError or wikipedia.exceptions.DisambiguationError as e:
+            except (wikipedia.exceptions.PageError, wikipedia.exceptions.DisambiguationError):
                 if verbose:
-                    print(f"page {page_title} not found, {e}")
+                    print(f"page {page_title} not found")
                 continue  # skip the page if it is not available
     return wiki_chunks
 
