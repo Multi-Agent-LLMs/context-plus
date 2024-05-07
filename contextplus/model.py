@@ -18,7 +18,6 @@ def get_embeddings(texts):
     :param texts: list of texts for which the embeddings should be calculated
     :return: embeddings
     """
-    # todo: check out arguments of the encode method for example 'prompt' or 'precision'
     return gist_embedding.encode(texts)
 
 
@@ -62,8 +61,6 @@ def create_wiki_search_prompt(query, verbose=False):
     return keywords
 
 
-# todo: try out to look at different titles and let the model decide which will be the most promising ones
-
 # ------------------------------------------------ Bart Large CNN -----------------------------------------------------
 
 def summarize_facts(top_chunks, min_length, max_length):
@@ -74,6 +71,8 @@ def summarize_facts(top_chunks, min_length, max_length):
     :param max_length: maximum length of the summary (in tokens)
     :return: summarized facts from the wiki content as a string
     """
+    if len(top_chunks) > 3700:
+        top_chunks = top_chunks[:3700]
     summary = bart_summarizer(top_chunks, min_length=min_length, max_length=max_length, do_sample=False)
     summary = summary[0]['summary_text']
     if summary.startswith(" "):

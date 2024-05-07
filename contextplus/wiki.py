@@ -1,4 +1,5 @@
 import concurrent.futures
+import warnings
 import wikipedia
 
 
@@ -44,7 +45,10 @@ def get_page_content(page_title):
     :param page_title: page_title of the wikipedia page from which the content should be extracted
     :return: content of the wikipedia page
     """
-    return wikipedia.page(page_title).content
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=UserWarning)
+        page_content = wikipedia.page(page_title, auto_suggest=False).content
+    return page_content
 
 
 def preprocess_and_chunk_wiki_content(wiki_content, chunk_length=512):
@@ -62,7 +66,7 @@ def preprocess_and_chunk_wiki_content(wiki_content, chunk_length=512):
     # split into paragraphs
     chunks = wiki_content.split("\n")
     # remove headings, empty chunks and too short chunks
-    chunks = [chunk for chunk in chunks if not ((chunk.startswith("=") and chunk.endswith("=")) or len(chunk) < 50)]
+    chunks = [chunk for chunk in chunks if not ((chunk.startswith("=") and chunk.endswith("=")) or len(chunk) < 100)]
     # split too long chunks
     additional_chunks = []
     for i, chunk in enumerate(chunks):
