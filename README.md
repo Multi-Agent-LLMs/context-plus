@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-<a><img src="image/contextplus-circle.png" alt="ContextPlus" width="128" height="128" title="FawnRescue"></a>
+<a><img src="https://raw.githubusercontent.com/Multi-Agent-LLMs/context-plus/main/image/contextplus-circle.png?token=GHSAT0AAAAAACRDJ47UT64OBP3RQ372AGN2ZR2FGSQ" alt="ContextPlus" width="128" height="128" title="FawnRescue"></a>
   <h3 align="center">ContextPlus</h3>
   <p align="center">
     Empowering Conversations with Real-Time Facts<br />
@@ -16,3 +16,26 @@
     </p>
   </p>
 </p>
+
+## Overview
+**ContextPlus** is a Python library designed to enhance conversations by providing real-time facts and information using large language models (LLMs). It operates completely on the CPU, making it accessible for integration into various applications without the need for specialized hardware.
+
+## Installation
+
+To install ContextPlus, use the following pip command:
+
+```bash
+pip install contextplus
+```
+
+## Usage
+
+Import and use the `context` function from the `contextplus` library to integrate real-time factual data into your projects:
+
+```python
+from contextplus import context
+
+# Example usage
+response = context("What is a LLM?")
+print(response)
+```
