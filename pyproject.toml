@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "contextplus"
+version = "0.1.0"
+description = ""
+authors = ["Florian Wunderlich"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+wikipedia = "^1.4.0"
+transformers = "^4.40.2"
+sentence-transformers = "^2.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

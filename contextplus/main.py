@@ -1,7 +1,6 @@
 import time
 
-import wiki
-import model
+from contextplus import model, wiki
 
 
 def context(query, n_wiki_pages=5, n_top_chunks=8, min_summary_length=100, max_summary_length=200, verbose=False):
