@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "contextplus"
-version = "0.0.0"
+version = "0.1.1"
 description = ""
 authors = ["Florian Wunderlich"]
 readme = "README.md"
@@ -11,18 +11,6 @@ wikipedia = "^1.4.0"
 transformers = "^4.40.2"
 sentence-transformers = "^2.7.0"
 
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-pattern  = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
-format-jinja = """
-    {%- if distance == 0 -%}
-        {{- base -}}
-    {%- else -%}
-        {{- base }}.dev{{ distance }}+g{{commit}}
-    {%- endif -%}
-"""
-
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
