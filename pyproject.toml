@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "contextplus"
-version = "0.0.0"
-description = ""
+version = "0.1.1"
+description = "Empowering Conversations with Real-Time Facts"
 authors = ["Florian Wunderlich"]
 readme = "README.md"
 
@@ -10,6 +10,7 @@ python = "^3.11"
 wikipedia = "^1.4.0"
 transformers = "^4.40.2"
 sentence-transformers = "^2.7.0"
+
 
 [tool.poetry-dynamic-versioning]
 enable = true
