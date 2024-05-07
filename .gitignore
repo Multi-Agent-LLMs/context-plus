@@ -1,3 +1,2 @@
 .idea
-*.tar.gz
-*.whl
+dist
