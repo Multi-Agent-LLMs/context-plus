@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-<a><img src="https://raw.githubusercontent.com/Multi-Agent-LLMs/context-plus/main/image/contextplus-circle.png?token=GHSAT0AAAAAACRDJ47UT64OBP3RQ372AGN2ZR2FGSQ" alt="ContextPlus" width="128" height="128" title="FawnRescue"></a>
+<a><img src="https://raw.githubusercontent.com/Multi-Agent-LLMs/context-plus/main/image/contextplus-circle.png" alt="ContextPlus" width="128" height="128" title="FawnRescue"></a>
   <h3 align="center">ContextPlus</h3>
   <p align="center">
     Empowering Conversations with Real-Time Facts<br />
