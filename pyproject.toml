@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "contextplus"
 version = "0.1.1"
-description = "ContextPlus is a Python library designed to enhance conversations by providing real-time facts and information using large language models (LLMs). It operates completely on the CPU, making it accessible for integration into various applications without the need for specialized hardware."
+description = "Empowering Conversations with Real-Time Facts"
 authors = ["Florian Wunderlich"]
 readme = "README.md"
 
