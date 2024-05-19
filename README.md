@@ -36,6 +36,10 @@ Import and use the `context` function from the `contextplus` library to integrat
 from contextplus import context
 
 # Example usage
-response = context("What is a LLM?")
+response = context("Who are the family members of Barack Obama?")
 print(response)
+```
+
+```
+>> The family of Barack Obama, the 44th president of the United States, is a prominent American family active in law, education, activism and politics. His immediate family includes his wife Michelle Obama and daughters Malia and Sasha. He often referred to his family during his candidacy and two terms as president. His family is of African-American heritage, descendants of Africans and Europeans of the colonial era and antebellum eras. Michelle Obama's family history traces from colonists and slavery in the South to Reconstruction.
 ```

@@ -77,6 +77,6 @@ def context(query, min_summary_length=100, max_summary_length=200, n_wiki_pages=
 
 
 if __name__ == "__main__":
-    user_query = "What are the names of Barack Obamas children?"
+    user_query = "Who are the family members of Barack Obama?"
     context = context(user_query, verbose=True)
     print(context)
