@@ -3,10 +3,10 @@ from sentence_transformers import SentenceTransformer
 from transformers import pipeline
 
 # Loading models
-device = "cpu"  # todo only for cpu testing, can be removed to automatically choose the device
-gist_embedding = SentenceTransformer("avsolatorio/GIST-small-Embedding-v0", device=device)
-bart_summarizer = pipeline("summarization", model="facebook/bart-large-cnn", device=device)
-flan_t5 = pipeline("text2text-generation", model="google/flan-t5-base", device=device)
+#device = "cpu"  # todo only for cpu testing, can be removed to automatically choose the device
+gist_embedding = SentenceTransformer("avsolatorio/GIST-small-Embedding-v0")
+bart_summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+flan_t5 = pipeline("text2text-generation", model="google/flan-t5-base")
 
 
 # ------------------------------------------------ Embedding Model ----------------------------------------------------
